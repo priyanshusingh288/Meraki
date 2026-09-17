@@ -10,6 +10,10 @@ Meraki is a community-driven backend framework focused on modularity and extensi
 
 - Python
 
+## Status
+
+> Early planning stage — no code yet. See `SRS.md` for requirements and planned plugin system.
+
 ## Getting Started
 
 ### Clone the repository
@@ -21,7 +25,7 @@ cd Meraki
 
 ## Contribution
 
-[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/https://discord.gg/Pcj8vq6Rru) 
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/Pcj8vq6Rru)
 
 ## License
 
