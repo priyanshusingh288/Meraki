@@ -1,33 +1,35 @@
 from abc import ABC, abstractmethod
-from typing import Any ,dict,list,Optional,Tuple
+from typing import Any, Optional, Tuple
 
-class databaseConnecter(ABC):
-    """abstract base class for db connection"""
+
+class DatabaseConnector(ABC):
+    """Abstract base class defining the database interface."""
 
     @abstractmethod
-    async def connect(self) -> None:
-        """connection or intialize th econnection from here to the database"""
+    def connect(self) -> None:
+        """connection to the database."""
         pass
 
     @abstractmethod
-    async def disconnect(self) -> None:
-        """diconnect all connection to the databse or connection pool"""
-
+    def disconnect(self) -> None:
+        """Close connection to the database."""
         pass
 
     @abstractmethod
-    async def execute(self, query: str, params: Optional[Tuple[Any, ...]] = None) -> Any:
-        """opertions like insert delete and update"""
-
+    def execute(self, query: str, params: Optional[Tuple[Any, ...]] = None) -> None:
+        """Execute a write/mutation query (INSERT, UPDATE, DELETE operations here)."""
         pass
 
     @abstractmethod
-    async def fetch_all(self, query: str, params: Optional[Tuple[Any, ...]] = None) -> list[dict[str, Any]]:
-        """Execute a read query and return all matching records as a list of dictionaries.
-        return: list of dicts mapping the rows and columns"""
+    def fetch_one(
+        self, query: str, params: Optional[Tuple[Any, ...]] = None
+    ) -> Optional[dict[str, Any]]:
+        """Fetch a single record matching the query."""
         pass
 
     @abstractmethod
-    async def fetch_one(self, query: str, params: Optional[tuple] = None) -> Optional[dict[str, Any]]:
-        """Execute a read query and return the first matching record."""
+    def fetch_all(
+        self, query: str, params: Optional[Tuple[Any, ...]] = None
+    ) -> list[dict[str, Any]]:
+        """Fetch all records matching the query."""
         pass
